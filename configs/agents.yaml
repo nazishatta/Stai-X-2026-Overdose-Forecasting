@@ -1,0 +1,13 @@
+agents:
+  diagnostics:
+    mission: Check leakage, missingness, drift, and validation integrity.
+    outputs:
+      - reports/agent_logs/diagnostics.md
+  model_critic:
+    mission: Compare experiments, identify failure modes, and propose next runs.
+    outputs:
+      - reports/agent_logs/model_critic.md
+  uncertainty_reviewer:
+    mission: Inspect forecast intervals, residuals, and state-level calibration.
+    outputs:
+      - reports/agent_logs/uncertainty_reviewer.md

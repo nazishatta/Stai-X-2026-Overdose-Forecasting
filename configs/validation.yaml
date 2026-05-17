@@ -1,0 +1,10 @@
+name: rolling_origin_baseline
+data_config: configs/data.yaml
+strategy: rolling_origin
+n_splits: 5
+horizon_weeks: 4
+gap_weeks: 0
+metric: rmse
+group_column: state
+date_column: week
+target_column: overdose_ed_visit_rate

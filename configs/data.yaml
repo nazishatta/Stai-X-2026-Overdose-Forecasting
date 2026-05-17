@@ -1,0 +1,21 @@
+competition:
+  name: stai-x-challenge-2026
+  target: overdose_ed_visit_rate
+  grain:
+    - state
+    - week
+
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  external_dir: data/external
+  train_file: data/raw/train.csv
+  test_file: data/raw/test.csv
+  sample_submission_file: data/raw/sample_submission.csv
+
+schema:
+  id_column: id
+  date_column: week
+  group_column: state
+  target_column: overdose_ed_visit_rate

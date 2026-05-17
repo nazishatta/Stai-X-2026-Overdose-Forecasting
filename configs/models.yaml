@@ -1,0 +1,15 @@
+models:
+  baseline_last_value:
+    class: stai_x_forecasting.models.baselines.LastValueForecaster
+    enabled: true
+  baseline_group_mean:
+    class: stai_x_forecasting.models.baselines.GroupMeanForecaster
+    enabled: true
+  gradient_boosted_trees:
+    class: lightgbm.LGBMRegressor
+    enabled: false
+    params:
+      objective: regression
+      n_estimators: 1000
+      learning_rate: 0.03
+      num_leaves: 31

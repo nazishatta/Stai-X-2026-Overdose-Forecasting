@@ -1,0 +1,2 @@
+experiment_id,date,status,track,hypothesis,local_metric,public_lb,artifact,notes
+000_baseline,2026-05-17,planned,leaderboard,Establish naive state-level baseline,,,,Initial scaffold entry

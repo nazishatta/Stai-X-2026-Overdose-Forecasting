@@ -1,0 +1,6 @@
+data_config: configs/data.yaml
+model_registry: experiments/registry.csv
+model_artifact: models/final_model.joblib
+output_file: submissions/submission.csv
+submission_id_column: id
+prediction_column: overdose_ed_visit_rate
