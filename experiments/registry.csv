@@ -1,2 +1,3 @@
-experiment_id,date,status,track,hypothesis,local_metric,public_lb,artifact,notes
-000_baseline,2026-05-17,planned,leaderboard,Establish naive state-level baseline,,,,Initial scaffold entry
+experiment_id,date,status,track,method,submission_file,local_metric,public_lb,rank,artifact,notes
+000_baseline,2026-05-17,planned,leaderboard,Naive state-level baseline,,,,,,Initial scaffold entry
+001,2026-05-17,submitted,leaderboard,Historical mean by jurisdiction and overdose_category,submission_baseline_mean_fixed.csv,,1.311,16,submissions/submission_baseline_mean_fixed.csv,First valid Kaggle submission; established baseline
