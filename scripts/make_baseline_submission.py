@@ -11,6 +11,7 @@ from stai_x_forecasting.data.loaders import load_competition_data
 
 TARGET_COLUMN = "rate_per_10000_ed_visits"
 KEY_COLUMNS = ["jurisdiction", "overdose_category"]
+OUTPUT_COLUMNS = ["row_id", TARGET_COLUMN]
 OUTPUT_PATH = Path("submissions/submission_baseline_mean.csv")
 
 
@@ -40,13 +41,14 @@ def main() -> None:
         validate="many_to_one",
     )
     submission[TARGET_COLUMN] = submission["pair_mean"].fillna(submission["category_mean"])
-    submission = submission[sample_submission.columns]
+    submission = submission[OUTPUT_COLUMNS]
 
-    if len(submission) != len(sample_submission):
-        raise ValueError(
-            "Submission row count changed: "
-            f"expected={len(sample_submission)}, actual={len(submission)}"
-        )
+    if len(submission) != 918:
+        raise ValueError(f"Submission must have exactly 918 rows, found {len(submission)}.")
+    if len(submission.columns) != 2:
+        raise ValueError(f"Submission must have exactly 2 columns, found {len(submission.columns)}.")
+    if submission.columns.tolist() != OUTPUT_COLUMNS:
+        raise ValueError(f"Submission columns must be exactly {OUTPUT_COLUMNS}.")
     if submission["row_id"].tolist() != original_row_ids.tolist():
         raise ValueError("Submission row_id values do not match sample_submission.csv.")
     if submission[TARGET_COLUMN].isna().any():
@@ -59,10 +61,12 @@ def main() -> None:
 
     print(f"Output path: {OUTPUT_PATH}")
     print(f"Shape: {submission.shape}")
+    print(f"Columns: {submission.columns.tolist()}")
     print("\nFirst 5 rows:")
     print(submission.head())
-    print("\nPrediction summary statistics:")
-    print(submission[TARGET_COLUMN].describe())
+    print(f"\nMin prediction: {submission[TARGET_COLUMN].min()}")
+    print(f"Max prediction: {submission[TARGET_COLUMN].max()}")
+    print(f"Missing prediction count: {submission[TARGET_COLUMN].isna().sum()}")
 
 
 if __name__ == "__main__":
