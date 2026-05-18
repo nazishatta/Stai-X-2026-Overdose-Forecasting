@@ -1,3 +1,4 @@
 experiment_id,date,status,track,method,submission_file,local_metric,public_lb,rank,artifact,notes
 000_baseline,2026-05-17,planned,leaderboard,Naive state-level baseline,,,,,,Initial scaffold entry
 001,2026-05-17,submitted,leaderboard,Historical mean by jurisdiction and overdose_category,submission_baseline_mean_fixed.csv,,1.311,16,submissions/submission_baseline_mean_fixed.csv,First valid Kaggle submission; established baseline
+002,2026-05-17,submitted,leaderboard,Category-specific hybrid tabular model,submission_hybrid_tabular.csv,,1.235,14,submissions/submission_hybrid_tabular.csv,HistGradientBoosting for all_drugs and ExtraTrees for all_opioids/all_stimulants; improved over baseline
